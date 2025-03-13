@@ -2,7 +2,6 @@
 require_once '../config/database.php';
 require_once '../classes/Event.php';
 
-// Pastikan koneksi database sudah ada
 $database = new Database();
 $db = $database->getConnection();
 $event = new Event($db);
@@ -13,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $event_date = $_POST['event_date'];
     $location = trim($_POST['location']);
 
-    // Pastikan semua data diisi
     if (!empty($title) && !empty($description) && !empty($event_date) && !empty($location)) {
         $event->title = $title;
         $event->description = $description;
