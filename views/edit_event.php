@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    var_dump($_POST); // Cek apakah data dikirim
+    var_dump($_POST); 
     $id = $_POST['id'];
     $title = $_POST['title'];
     $description = $_POST['description'];
