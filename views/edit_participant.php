@@ -2,12 +2,10 @@
 include '../config/database.php';
 include '../classes/Participant.php';
 
-// Koneksi ke database
 $database = new Database();
 $pdo = $database->getConnection();
 $participant = new Participant($pdo);
 
-// Pastikan ID peserta diberikan di URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $participantData = $participant->getById($id);
@@ -19,13 +17,11 @@ if (isset($_GET['id'])) {
     die("ID tidak diberikan.");
 }
 
-// Jika form dikirim, update data peserta
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
 
-    // Set properti objek
     $participant->id = $id;
     $participant->name = $name;
     $participant->email = $email;
