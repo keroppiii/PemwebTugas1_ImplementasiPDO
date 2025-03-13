@@ -2,16 +2,13 @@
 require_once '../config/database.php';
 require_once '../classes/Event.php';
 
-// Buat objek Database dan ambil koneksi
 $database = new Database();
 $pdo = $database->getConnection();
 
-// Pastikan $pdo tidak null
 if (!$pdo) {
     die("Database connection failed.");
 }
 
-// Buat objek Event dan ambil semua event
 $event = new Event($pdo);
 $events = $event->readAll();
 ?>
