@@ -6,7 +6,6 @@ $database = new Database();
 $pdo = $database->getConnection();
 $participant = new Participant($pdo);
 
-// Pastikan ada ID yang dikirimkan
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
