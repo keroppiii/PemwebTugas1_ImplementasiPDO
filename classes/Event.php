@@ -31,10 +31,8 @@ class Event {
                       VALUES (:title, :description, :event_date, :location)";
             $stmt = $this->conn->prepare($query);
 
-            // Membersihkan data input
             $this->sanitize();
 
-            // Bind parameters
             $stmt->bindParam(":title", $this->title);
             $stmt->bindParam(":description", $this->description);
             $stmt->bindParam(":event_date", $this->event_date);
@@ -71,7 +69,6 @@ class Event {
                       WHERE id = :id";
             $stmt = $this->conn->prepare($query);
     
-            // Bind parameters
             $stmt->bindParam(":id", $id);
             $stmt->bindParam(":title", $title);
             $stmt->bindParam(":description", $description);
@@ -81,7 +78,7 @@ class Event {
             if ($stmt->execute()) {
                 return true;
             } else {
-                print_r($stmt->errorInfo()); // Debugging jika ada kesalahan
+                print_r($stmt->errorInfo()); 
                 return false;
             }
         } catch (PDOException $e) {
