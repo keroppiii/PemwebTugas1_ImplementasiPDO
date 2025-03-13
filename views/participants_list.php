@@ -2,16 +2,13 @@
 require_once '../config/database.php';
 require_once '../classes/Participant.php';
 
-// Buat objek Database dan ambil koneksi
 $database = new Database();
 $pdo = $database->getConnection();
 
-// Pastikan $pdo tidak null
 if (!$pdo) {
     die("Database connection failed.");
 }
 
-// Buat objek peserta dan ambil semua peserta
 $participant = new Participant($pdo);
 $participants = $participant->readAll();
 ?>
