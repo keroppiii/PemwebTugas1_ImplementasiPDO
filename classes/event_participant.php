@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../config/database.php';
 
-class EventParticipant {
+class event_participant {
     private $conn;
     private $table_name = "event_participant";
 
