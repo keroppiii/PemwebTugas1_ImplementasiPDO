@@ -2,7 +2,6 @@
 include '../config/database.php';
 include '../classes/Participant.php';
 
-// Pastikan koneksi database sudah ada
 $database = new Database();
 $db = $database->getConnection();
 $participant = new Participant($db);
